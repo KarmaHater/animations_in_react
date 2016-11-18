@@ -1,13 +1,16 @@
 import * as Constants from '../constants/constants.js';
 
-const initialState = {};
+const initialState = {
+    articles: []
+};
 
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case Constants.DUMMY:
+        case Constants.ARTICLES_FETCH:
             return {
-                ...state
+                ...state,
+                articles: action.articles
             };
         default:
             return state;

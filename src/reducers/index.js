@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import dummy from './dummy-reducer';
+import article from './article-reducer';
 
 export default combineReducers({
-    dummy,
+    article,
 });

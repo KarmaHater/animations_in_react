@@ -1,13 +1,19 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import DummyActions from './../actions/dummy-actions.js';
+import * as articleActions from '../actions/article-actions.js';
 
 class HomePage extends Component {
+
+    componentWillMount() {
+        this.props.actions.fetchArticles()
+    }
+
     render() {
+        debugger
         return (
             <div>
-              hello!
+                {this.props.articles}
             </div>
         );
     }
@@ -15,12 +21,12 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
     return {
-        state: state
+        articles: state.article.articles
     };
 }
 function mapDispatchToProps(dispatch) {
     return {
-        dummyActions: bindActionCreators(DummyActions, dispatch)
+        actions: bindActionCreators(articleActions, dispatch)
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
