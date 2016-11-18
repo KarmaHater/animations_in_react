@@ -14,7 +14,7 @@ export function fetchArticles() {
             }).then((response) => {
                 return response.json();
             }).then((data) => {
-                const articles = data.content.slice(0, 5);
+                const articles = data.content.slice(0, 3);
                 dispatch({
                     type: Constants.ARTICLES_FETCH,
                     articles
