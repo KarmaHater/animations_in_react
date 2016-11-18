@@ -2,18 +2,20 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as articleActions from '../actions/article-actions.js';
+import ArticleList from '../components/article-list'
 
 class HomePage extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.fetchArticles()
     }
 
     render() {
-        debugger
+        const {articles} = this.props;
+
         return (
             <div>
-                {this.props.articles}
+                <ArticleList articles={articles}/>
             </div>
         );
     }
