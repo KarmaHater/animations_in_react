@@ -1,10 +1,11 @@
 import React from 'react';
-import './article.css'
+import Overlay from './../overlay/overlay';
+import './article.css';
 
-export default class ArticleList extends React.Component {
+export default class Article extends React.Component {
 
     static propTypes = {
-        articles: React.PropTypes.object
+        article: React.PropTypes.object
     }
 
     render() {
@@ -19,11 +20,9 @@ export default class ArticleList extends React.Component {
                     <img className="article-plus" src="https://d30y9cdsu7xlg0.cloudfront.net/png/212203-200.png" alt=""/>
                 </div>
                 <div>
-                    <img className="article-image" src={this.props.article.media.images[0].mediumHdUrl} alt="image"/>
+                    <img className="article-image" src={media.images[0].mediumHdUrl} alt="image"/>
                 </div>
-
-
-                {name}
+                <Overlay name={name} price={"price"}/>
             </div>
         );
     }

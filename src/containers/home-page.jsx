@@ -15,6 +15,9 @@ class HomePage extends Component {
 
         return (
             <div>
+                <h1>Connected to the State Tree</h1>
+                <ArticleList articles={articles}/>
+                <h1>Using Internal Component State</h1>
                 <ArticleList articles={articles}/>
             </div>
         );
