@@ -25,7 +25,7 @@ export default class Article extends React.Component {
         }
     }
 
-    animateOverlayByStateTree() {
+    useStateTree() {
         const {
             overlayAnimationId,
             article
@@ -44,7 +44,7 @@ export default class Article extends React.Component {
             media
         } = this.props.article;
 
-        let animateOverlay = this.props.useStateTree ? this.animateOverlayByStateTree() : this.state.animateOverlay
+        let animateOverlay = this.props.useStateTree ? this.useStateTree() : this.state.animateOverlay
 
         return (
             <div className="article">
