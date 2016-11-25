@@ -22,3 +22,10 @@ export function fetchArticles() {
             });
     };
 }
+
+export function updateOverlayAnimationId(overlayAnimationId) {
+    return {
+        type: Constants.OVERLAY_ANIMATION_ID_UPDATE,
+        overlayAnimationId
+    }
+}

@@ -16,9 +16,9 @@ class HomePage extends Component {
         return (
             <div>
                 <h1>Connected to the State Tree</h1>
-                <ArticleList articles={articles} useStateTree={true}/>
+                <ArticleList {...this.props} useStateTree={true}/>
                 <h1>Using Internal Component State</h1>
-                <ArticleList articles={articles} useStateTree={false}/>
+                <ArticleList {...this.props} useStateTree={false}/>
             </div>
         );
     }
@@ -26,7 +26,8 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
     return {
-        articles: state.article.articles
+        articles: state.article.articles,
+        overlayAnimationId: state.article.overlayAnimationId
     };
 }
 function mapDispatchToProps(dispatch) {

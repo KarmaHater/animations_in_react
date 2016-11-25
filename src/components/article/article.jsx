@@ -16,8 +16,26 @@ export default class Article extends React.Component {
     }
 
     displayOverlay = () => {
-        // checkif we are useing internal state here
-        this.setState({animateOverlay: true})
+        const overlayAnimationId = this.props.article.modelId;
+
+        if(this.props.useStateTree) {
+            this.props.actions.updateOverlayAnimationId(overlayAnimationId);
+        } else {
+            this.setState({animateOverlay: true})
+        }
+    }
+
+    animateOverlayByStateTree() {
+        const {
+            overlayAnimationId,
+            article
+        } = this.props;
+
+        if(overlayAnimationId === article.modelId) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     render() {
@@ -25,6 +43,8 @@ export default class Article extends React.Component {
             name,
             media
         } = this.props.article;
+
+        let animateOverlay = this.props.useStateTree ? this.animateOverlayByStateTree() : this.state.animateOverlay
 
         return (
             <div className="article">
@@ -34,7 +54,7 @@ export default class Article extends React.Component {
                 <div>
                     <img className="article-image" src={media.images[0].mediumHdUrl} alt="image"/>
                 </div>
-                <Overlay name={name} price={"price"} animateOverlay={this.state.animateOverlay}/>
+                <Overlay name={name} price={"price"} animateOverlay={animateOverlay}/>
             </div>
         );
     }

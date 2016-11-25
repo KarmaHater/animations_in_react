@@ -8,21 +8,14 @@ export default class ArticleList extends React.Component {
         articles: React.PropTypes.array
     }
 
-    renderUsingStateTree() {
-        const {articles} = this.props;
-        return articles.map((article) => <Article key={article.id} article={article} overlayId={"ide from tree"}/>)
-    }
-
-    renderWithoutInternalComponentState() {
-        const {articles} = this.props;
-        return articles.map((article) => <Article key={article.id} article={article} />)
+    renderArticles() {
+        return this.props.articles.map((article) => <Article {...this.props} key={article.id} article={article} />);
     }
 
     render() {
-        const articles = this.props.useStateTree ? this.renderUsingStateTree() : this.renderWithoutInternalComponentState()
         return (
             <div className='article-list'>
-                {articles}
+                {this.renderArticles()}
             </div>
         );
     }

@@ -1,7 +1,8 @@
 import * as Constants from '../constants/constants.js';
 
 const initialState = {
-    articles: []
+    articles: [],
+    overlayAnimationId: null
 };
 
 
@@ -12,7 +13,12 @@ export default (state = initialState, action) => {
                 ...state,
                 articles: action.articles
             };
-        default:
+        case Constants.OVERLAY_ANIMATION_ID_UPDATE:
+            return {
+                ...state,
+                overlayAnimationId: action.overlayAnimationId
+            };
+                default:
             return state;
     }
 };
