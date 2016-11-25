@@ -11,7 +11,7 @@ export default class Article extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            animateOverlay: false
+            useInternalComponentState: false
         }
     }
 
@@ -21,7 +21,7 @@ export default class Article extends React.Component {
         if(this.props.useStateTree) {
             this.props.actions.updateOverlayAnimationId(overlayAnimationId);
         } else {
-            this.setState({animateOverlay: true})
+            this.setState({useInternalComponentState: true})
         }
     }
 
@@ -44,7 +44,7 @@ export default class Article extends React.Component {
             media
         } = this.props.article;
 
-        let animateOverlay = this.props.useStateTree ? this.useStateTree() : this.state.animateOverlay
+        let animateOverlay = this.props.useStateTree ? this.useStateTree() : this.state.useInternalComponentState
 
         return (
             <div className="article">

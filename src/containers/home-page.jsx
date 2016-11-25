@@ -18,7 +18,7 @@ class HomePage extends Component {
                 <h1>Connected to the State Tree</h1>
                 <ArticleList {...this.props} useStateTree={true}/>
                 <h1>Using Internal Component State</h1>
-                <ArticleList {...this.props} useStateTree={false}/>
+                <ArticleList {...this.props}/>
             </div>
         );
     }
