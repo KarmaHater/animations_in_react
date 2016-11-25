@@ -1,5 +1,6 @@
 import React from 'react';
-import './overlay.css'
+import classnames from 'classnames';
+import './overlay.css';
 
 export default class Overlay extends React.Component {
 
@@ -14,8 +15,10 @@ export default class Overlay extends React.Component {
             price
         } =this.props;
 
+        const overlayClassNames = classnames('overlay', { 'overlay-animate': this.props.animateOverlay});
+
         return (
-            <div className="overlay">
+            <div className={overlayClassNames}>
                 {name}
                 {price}
             </div>
